@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+}
+
+#game-setup, #game-container {
+  text-align: center;
+}
+
+#grid, #bomb-input-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 50px);
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.grid-box {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bomb {
+  background-color: red;
+}
+
+#reset {
+  margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-setup">
+    <h2>Setup Bombs</h2>
+    <label for="bomb-count">How many bombs?</label>
+    <input type="number" id="bomb-count" min="1" max="46">
+    <button id="confirm-bomb-count">Next</button>
+    <div id="bomb-placement" style="display: none;">
+      <p>Choose the bomb locations:</p>
+      <div id="bomb-input-grid"></div>
+      <button id="ready">Ready</button>
+    </div>
+  </div>
+
+  <div id="game-container" style="display: none;">
+    <h2>Minesweeper Game</h2>
+    <div id="grid"></div>
+    <button id="reset">Reset Game</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
