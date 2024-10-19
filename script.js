@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameSetup = document.getElementById('game-setup');
   const gameContainer = document.getElementById('game-container');
 
+  // Function to create the grid
   const createGrid = (container, isBombPlacement = false) => {
-    container.innerHTML = '';
+    container.innerHTML = '';  // Clear existing content
     for (let i = 1; i <= 46; i++) {
       const box = document.createElement('div');
       box.classList.add('grid-box');
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Function to toggle bomb placement
   const toggleBomb = (number, box) => {
     if (bombLocations.includes(number)) {
       bombLocations = bombLocations.filter(loc => loc !== number);
@@ -36,15 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Function to reveal a box when clicked
   const revealBox = (number, box) => {
     if (bombLocations.includes(number)) {
+      // If it's a bomb, display bomb icon and turn the box red
       box.classList.add('bomb');
       box.textContent = '💣';
     } else {
+      // If it's not a bomb, light up the box in green
       box.classList.add('safe');
+      box.textContent = '';  // Optionally, clear the number or keep it
     }
+    box.removeEventListener('click', () => revealBox(number, box));  // Prevent further clicks on the revealed box
   };
 
+  // Event listener to confirm bomb count and proceed to bomb placement
   confirmBombCountBtn.addEventListener('click', () => {
     bombCount = parseInt(bombCountInput.value);
     if (bombCount > 0 && bombCount <= 46) {
@@ -53,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Event listener to confirm bomb placement and start the game
   readyBtn.addEventListener('click', () => {
     if (bombLocations.length === bombCount) {
       gameSetup.style.display = 'none';
@@ -63,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Reset the game to start again
   resetBtn.addEventListener('click', () => {
     gameSetup.style.display = 'block';
     gameContainer.style.display = 'none';

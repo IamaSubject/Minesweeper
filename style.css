@@ -32,6 +32,13 @@ body {
 
 .bomb {
   background-color: red;
+  color: white;
+  font-size: 24px;
+}
+
+.safe {
+  background-color: green;
+  color: white;
 }
 
 #reset {
