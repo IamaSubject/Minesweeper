@@ -38,10 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const revealBox = (number, box) => {
     if (bombLocations.includes(number)) {
+      // If it's a bomb, make it red and show the bomb icon
       box.classList.add('bomb');
       box.textContent = '💣';
     } else {
+      // If it's safe (not a bomb), make it green
       box.classList.add('safe');
+      box.style.backgroundColor = 'green';  // Turn the box green
+      box.textContent = number;  // Optionally, show the number
     }
   };
 
